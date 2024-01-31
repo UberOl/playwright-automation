@@ -10,6 +10,7 @@ class TestCases:
     def delete_test_by_name(self, test_name: str):
         self.page.get_by_text(test_name)
         self.page.get_by_role("row", name=test_name).get_by_role("button").nth(3).click()
+        self.page.wait_for_timeout(300)
 
     def check_columns_hidden(self):
         description = self.page.is_hidden('.thDes')
